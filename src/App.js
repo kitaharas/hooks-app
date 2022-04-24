@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const App = (props) => {
   const [state, setState] = useState(props);
   const {name,price} = state
+
+  useEffect(() => {
+    console.log('最初のレンダリングかコンポーネントがアップデート')
+  })
+  useEffect(() => {
+    console.log('最初のレンダリング')
+  },[])
+  useEffect(() => {
+    console.log('ネームのコールバックだけ')
+  },[name])
+
 
 
   return (
